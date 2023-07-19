@@ -2,7 +2,8 @@
 
 return [
     'page' => [
-        'title' => 'لاگ های سیستم'
+        'title' => 'لاگ های سیستم',
+        'navigationLabel' => 'لاگ های سیستم'
     ],
     'forms' => [
         'search' => [

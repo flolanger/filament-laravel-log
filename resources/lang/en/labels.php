@@ -2,7 +2,8 @@
 
 return [
     'page' => [
-        'title' => 'Site Logs'
+        'title' => 'Site Logs',
+        'navigationLabel' => 'Logs',
     ],
     'forms' => [
         'search' => [

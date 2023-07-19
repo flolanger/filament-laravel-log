@@ -44,6 +44,9 @@ class ViewLog extends Page
 
     public function clearLogs(): void
     {
+        if (! $this->logFile) {
+            return;
+        }
         $this->writeLog();
         $this->refreshContent();
     }
@@ -75,9 +78,9 @@ class ViewLog extends Page
                 ->searchable()
                 ->reactive()
                 ->disableLabel()
-                ->placeholder(__('log::filament-laravel-log.forms.search.placeholder'))
+                ->placeholder(__('filament-laravel-log::labels.forms.search.placeholder'))
                 ->options(fn () => $this->getFileNames($this->getFinder())->take(5))
-                ->getSearchResultsUsing(fn (string $query) => $this->getFileNames($this->getFinder()->name("*{$query}*"))),
+                ->getSearchResultsUsing(fn (string $query) => $this->getFileNames($this->getFinder()->name("*{$query}*")))
         ];
     }
 
@@ -105,7 +108,7 @@ class ViewLog extends Page
 
     protected static function getNavigationLabel(): string
     {
-        return config('filament-laravel-log.navigationLabel');
+        return __('filament-laravel-log::labels.page.navigationLabel');
     }
 
     public static function getSlug(): string
@@ -115,6 +118,6 @@ class ViewLog extends Page
 
     protected function getTitle(): string
     {
-        return __('log::filament-laravel-log.page.title');
+        return __('filament-laravel-log::labels.page.title');
     }
 }

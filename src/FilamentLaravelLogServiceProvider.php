@@ -17,7 +17,7 @@ class FilamentLaravelLogServiceProvider extends PluginServiceProvider
             ->name(self::$name)
             ->hasViews(self::$name)
             ->hasConfigFile(self::$name)
-            ->hasTranslations()
+            ->hasTranslations(self::$name)
             ->hasCommands([
                 UpgradeFilamentLaravelLogCommand::class,
             ]);
@@ -40,7 +40,7 @@ class FilamentLaravelLogServiceProvider extends PluginServiceProvider
     protected function getScripts(): array
     {
         return [
-            self::$name . '-ace' => 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js',
+            self::$name . '-ace' => __DIR__ . '/../dist/js/ace.js',
         ];
     }
 }
